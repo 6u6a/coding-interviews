@@ -12,6 +12,18 @@ public class Test28 {
      */
 	public static int cha[];
 	
+	public static void permutation(char[] chars){
+        char res[] = new char[chars.length];
+        int i;
+        cha = new int[26];
+        //统计数组中每个字符的个数
+		for(i = 0; i < chars.length; i ++){
+            cha[chars[i] - 'a'] ++;
+        }
+        permutation(res, 0, chars.length);
+        System.out.println();
+	}
+	
     /**
      * 求字符数组的排列
      *
@@ -36,24 +48,9 @@ public class Test28 {
 
     public static void main(String[] args) {
         char[] c1 = {'a', 'b', 'c'};
-        char res[] = new char[c1.length];
-        int i;
-        cha = new int[26];
-        //统计数组中每个字符的个数
-		for(i = 0; i < c1.length; i ++){
-            cha[c1[i] - 'a'] ++;
-        }
-        permutation(res, 0, c1.length);
-        System.out.println();
+		permutation(c1);
 
         char[] c2 = {'a', 'a', 'b', 'b'};
-        res = new char[c2.length];
-        cha = new int[26];
-		//统计数组中每个字符的个数
-        for(i = 0; i < c2.length; i ++){
-            cha[c2[i] - 'a'] ++;
-        }
-        permutation(res, 0, c2.length);
-        System.out.println();
+        permutation(c2);
     }
 }
